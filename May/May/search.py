@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import os
 
 
 # 表单
@@ -9,7 +10,9 @@ def search_form(request):
 
 # 接收请求数据
 def search(request):
-    request.encoding = 'utf-8'
+    # request.encoding = 'utf-8'
+    print("haha")
+    print(request.FILES)
     if 'q' in request.GET and request.GET['q']:
         message = '你搜索的内容为: ' + request.GET['q']
     else:
