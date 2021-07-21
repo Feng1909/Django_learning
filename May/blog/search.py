@@ -10,7 +10,6 @@ import os
 def search_form(request):
     return render(request, 'search_form.html')
 
-
 # 接收请求数据
 def search(request):
     flag=0
@@ -18,7 +17,7 @@ def search(request):
     print("haha")
     print(request.FILES)
     #b64ImgData = request.FILES['image']
-    try :
+    try:
         studentname = request.FILES['stname']
     except KeyError:
         studentname=None
@@ -30,7 +29,7 @@ def search(request):
         stucla  = request.FILES['class']
     except KeyError:
         stucla  = None
-        flag=1
+        flag = 1
     try:
         stuacc  = request.FILES['account']
     except KeyError:
