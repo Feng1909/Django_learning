@@ -10,5 +10,5 @@ urlpatterns=[
     url(r'^delete/$',views.DeleteUser),
     url(r'^modify/$',views.Modification),
     url(r'^admin/',admin.site.urls),
-    url(r'^', search.search),
+    url(r'^haha/$', search.search),
 ]
