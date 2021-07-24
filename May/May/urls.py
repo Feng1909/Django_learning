@@ -1,10 +1,8 @@
 from django.conf.urls import include,url
 # from . import views, search2
-from ..blog import views
-from ..blog import search
+from blog import views
+from blog import search
 from django.contrib import admin
-import sys,os
-sys.path.append(os.path.dirname(__file__) + os.sep + '../')
 
 
 urlpatterns = [
