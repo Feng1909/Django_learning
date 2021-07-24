@@ -12,6 +12,7 @@ def search_form(request):
 
 # 接收请求数据
 def search(request):
+    print("receivce")
     flag=0
     # request.encoding = 'utf-8'
     print("haha")
