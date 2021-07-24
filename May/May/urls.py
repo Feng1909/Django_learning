@@ -4,7 +4,7 @@ from django.conf.urls import include,url
 from . import views, search2
 #from ..blog import search
 # from ..blog import search
-from ~/Django_learning/May/blog import search
+from /root/Django_learning/May/blog import search
 
 urlpatterns = [
     url(r'^hello/$', views.runoob),
