@@ -1,4 +1,4 @@
-from May.blog import search
+# from May.blog import search
 from May import blog
 from django.conf.urls import include,url
 from . import views, search2
