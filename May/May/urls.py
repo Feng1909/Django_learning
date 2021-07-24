@@ -3,6 +3,9 @@ from django.conf.urls import include,url
 from ..blog import views
 from ..blog import search
 from django.contrib import admin
+import sys,os
+sys.path.append(os.path.dirname(__file__) + os.sep + '../')
+
 
 urlpatterns = [
     url(r'^index/$',views.index),
