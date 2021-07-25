@@ -20,7 +20,8 @@ def search(request):
 
     #这里用来接收数据，如果函数不可行可以使用request.POST.get 或request.GET.get
     try:
-        stname = files.get('name',None)
+        # stname = files.get('name',None)
+        stname = request.POST.get('name', None)
         print("name:")
         print(stname)
     except KeyError:
