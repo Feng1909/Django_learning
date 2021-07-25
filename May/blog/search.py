@@ -24,26 +24,34 @@ def search(request):
     try:
         stname = request.FILES['name']
     except KeyError:
+        print("name error")
         stname=None
     try:
         stuid   = request.FILES['id']
     except KeyError:
         stuid= None
+        print("id error")
         flag = 1    #用于判断人脸识别执行注册或是登录
     try:
         stucla  = request.FILES['class']
     except KeyError:
+        print("class error")
         stucla  = None
 
     try:
         stuacc  = request.FILES['account']
     except KeyError:
+        print("account error")
         stuacc = None
     try:
         stuimag = request.FILES['image']
         stuimag.save('./reg.png')
     except KeyError:
+        print("image error")
         stuimag=None
+    message='人脸识别失败，请重新验证'
+    print('人脸识别失败，请重新验证')
+    return HttpResponse(message)
 
     #人脸识别
     if(flag==1):       #登录
