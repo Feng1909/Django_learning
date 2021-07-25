@@ -6,7 +6,6 @@ from .models import Student
 import base64
 import os
 import qrcode
-from PIL import Image
 
 # 表单
 def search_form(request):
@@ -100,8 +99,7 @@ def search(request):
 
         os.system('cd /root/lib-face-rec && ./libFaceRec /root/Django_learning/May/reg.png 1 %s' %stuid)
         #新用户
-        stuimag = Image.open("/root/Django_learning/May/reg.png")
-        Student.objects.create(studentname=stname, studentid=stuid, Class=stucla, account=stuacc, image=stuimag)
+        Student.objects.create(studentname=stname, studentid=stuid, Class=stucla, account=stuacc)
         message='识别成功，新用户已创建'
         return HttpResponse(message)
 
