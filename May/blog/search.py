@@ -15,36 +15,39 @@ def search_form(request):
 def search(request):
     print("receive")
     flag=0
-    request.encoding = 'utf-8'
-    #print("haha")
     print(request.FILES)
-    #b64ImgData = request.FILES['image']
+    files = request.FILES
 
     #这里用来接收数据，如果函数不可行可以使用request.POST.get 或request.GET.get
     try:
-        stname = request.FILES['name']
+        stname = files.get('name',None).read();   
+        print("name:")
+        print(stname)
     except KeyError:
         print("name error")
         stname=None
     try:
-        stuid   = request.FILES['id']
+        stuid   = files.get('id',None).read();   
+        print("id")
+        print(stuid)
     except KeyError:
         stuid= None
         print("id error")
         flag = 1    #用于判断人脸识别执行注册或是登录
     try:
-        stucla  = request.FILES['class']
+        stucla  = files.get('class',None).read();   
+        print("class:")
+        print(class)
     except KeyError:
         print("class error")
         stucla  = None
 
     try:
-        stuacc  = request.FILES['account']
+        stuacc  = files.get('account',None).read();   
     except KeyError:
         print("account error")
         stuacc = None
     try:
-        files = request.FILES
         content = files.get('image',None).read();        
         '''
         设置保存路径
