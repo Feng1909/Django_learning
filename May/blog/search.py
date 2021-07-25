@@ -45,7 +45,12 @@ def search(request):
         stuacc = None
     try:
         stuimag = request.FILES['image']
-        stuimag.save('./reg.png')
+        filename = './reg.png'
+        with open(filename, 'wb') as f:
+            imgData = base64.b64decode(stuimag)
+            f.write(imgData)
+
+
     except KeyError:
         print("image error")
         stuimag=None
