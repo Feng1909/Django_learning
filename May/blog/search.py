@@ -41,15 +41,15 @@ def search(request):
         stuacc = None
     try:
         stuimag = request.FILES['image']
-        stuimag.save('~/reg.png')
+        stuimag.save('./reg.png')
     except KeyError:
         stuimag=None
 
     #人脸识别
     if(flag==1):       #登录
-        os.system('cd .. && cd lib-face-rec && ./libFaceRec ~/reg.png 2')
+        os.system('cd .. && cd lib-face-rec && ./libFaceRec ./reg.png 2')
         #这里有个读取文件识别结果的过程我不太知道格式~/result.txt
-        with open("~/result.txt", "r") as f:
+        with open("/root/result.txt", "r") as f:
             a = f.readlines()
         
 
@@ -77,7 +77,7 @@ def search(request):
 
     elif(flag==0):     #注册
 
-        os.system('cd .. && cd lib-face-rec && ./libFaceRec ~/reg.png 1 %s' %stuid)
+        os.system('cd .. && cd lib-face-rec && ./libFaceRec ./reg.png 1 %s' %stuid)
         #新用户
         Student.objects.create(studentname=stname, studentid=stuid, Class=stucla, account=stuacc, image=stuimag)
         message='识别成功，新用户已创建'
