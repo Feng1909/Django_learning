@@ -28,7 +28,8 @@ def search(request):
         print("name error")
         stname=None
     try:
-        stuid   = files.get('id',None)
+        # stuid   = files.get('id',None)
+        stuid = request.POST.get('id', None)
         print("id")
         print(stuid)
     except KeyError:
@@ -36,7 +37,8 @@ def search(request):
         print("id error")
         flag = 1    #用于判断人脸识别执行注册或是登录
     try:
-        stucla  = files.get('class',None)
+        # stucla  = files.get('class',None)
+        stucla = request.POST.get('class',None)
         print("class:")
         print(stucla)
     except KeyError:
@@ -44,7 +46,8 @@ def search(request):
         stucla  = None
 
     try:
-        stuacc  = files.get('account',None)
+        # stuacc  = files.get('account',None)
+        stuacc = request.POST.get('account', None)
     except KeyError:
         print("account error")
         stuacc = None
@@ -60,13 +63,10 @@ def search(request):
     except KeyError:
         print("image error")
         stuimag=None
-    message='人脸识别失败，请重新验证'
-    print('人脸识别失败，请重新验证')
-    return HttpResponse(message)
 
     #人脸识别
     if(flag==1):       #登录
-        print(os.system("pwd"))
+        # print(os.system("pwd"))
         os.system('cd /root/lib-face-rec && ./libFaceRec ./reg.png 2')
         #这里有个读取文件识别结果的过程我不太知道格式~/result.txt
         with open("/root/result.txt", "r") as f:
