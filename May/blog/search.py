@@ -37,7 +37,7 @@ def search(request):
     try:
         stucla  = files.get('class',None).read();   
         print("class:")
-        print(class)
+        print(stucla)
     except KeyError:
         print("class error")
         stucla  = None
