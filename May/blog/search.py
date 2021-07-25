@@ -47,6 +47,7 @@ def search(request):
 
     #人脸识别
     if(flag==1):       #登录
+        print(os.system("pwd"))
         os.system('cd .. && cd lib-face-rec && ./libFaceRec ./reg.png 2')
         #这里有个读取文件识别结果的过程我不太知道格式~/result.txt
         with open("/root/result.txt", "r") as f:
