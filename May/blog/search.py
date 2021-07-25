@@ -43,7 +43,7 @@ def search(request):
         stucla  = None
 
     try:
-        stuacc  = files.get('account',None).read();   
+        stuacc  = files.get('account',None)
     except KeyError:
         print("account error")
         stuacc = None
