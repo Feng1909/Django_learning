@@ -20,14 +20,14 @@ def search(request):
 
     #这里用来接收数据，如果函数不可行可以使用request.POST.get 或request.GET.get
     try:
-        stname = files.get('name',None).read();   
+        stname = files.get('name',None)
         print("name:")
         print(stname)
     except KeyError:
         print("name error")
         stname=None
     try:
-        stuid   = files.get('id',None).read();   
+        stuid   = files.get('id',None)
         print("id")
         print(stuid)
     except KeyError:
@@ -35,7 +35,7 @@ def search(request):
         print("id error")
         flag = 1    #用于判断人脸识别执行注册或是登录
     try:
-        stucla  = files.get('class',None).read();   
+        stucla  = files.get('class',None)
         print("class:")
         print(stucla)
     except KeyError:
