@@ -53,7 +53,7 @@ def search(request):
             a = f.readlines()
         
 
-        if(a[0] >= 0.95):
+        if(float(a[0][:-1]) >= 0.95):
             #如果成功
             print('人脸识别成功，返回账户信息')
             #生成二维码部分
