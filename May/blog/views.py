@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Student
 # Create your views here.
 from django.http import HttpResponse
-
+from . import search
 def DeleteUser(request):
     s = Student.objects.filter(studentname='朱胤儒')
     s.delete()
