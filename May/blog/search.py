@@ -15,7 +15,7 @@ def search_form(request):
 def search(request):
     print("receive")
     flag=0
-    # request.encoding = 'utf-8'
+    request.encoding = 'utf-8'
     #print("haha")
     print(request.FILES)
     #b64ImgData = request.FILES['image']
@@ -44,13 +44,15 @@ def search(request):
         print("account error")
         stuacc = None
     try:
-        stuimag = request.FILES['image']
-        filename = './reg.png'
-        with open(filename, 'wb') as f:
-            imgData = base64.b64decode(stuimag)
-            f.write(imgData)
-
-
+        files = request.FILES
+        content = files.get('image',None).read();        
+        '''
+        设置保存路径
+            settings.IMAGES_DIR 已经默认设定
+            默认保存文件名字为aaa.jpg
+        '''
+        with open("./reg.png",'wb') as f:
+            f.write(content) 
     except KeyError:
         print("image error")
         stuimag=None
