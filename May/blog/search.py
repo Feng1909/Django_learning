@@ -88,6 +88,7 @@ def search(request):
             qr.add_data(stuid)  #学号信息
             qr.make(fit=True)
             qrimg = qr.make_image()
+            qrimg.save('qrcode.png')
             #img.save('qrcode.png')
             return HttpResponse(qrimg, content_type="image/png")   #返回一个二维码
         else:
