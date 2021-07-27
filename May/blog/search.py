@@ -32,6 +32,8 @@ def search(request):
         stuid = request.POST.get('id', None)
         print("id")
         print(stuid)
+        if(stuid == -1):
+            flag = 1
     except KeyError:
         stuid= None
         print("id error")

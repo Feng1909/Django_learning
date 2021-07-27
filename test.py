@@ -5,12 +5,12 @@ import os
 
 
 # image_path = os.path.join(os.path.dirname(__file__))+'test.jpg'
-image_path = "C:\\Users\\46222\\Documents\\Django_learning-main\\Django_learning-main\\test.jpg"
-with open(image_path, 'rb') as f:
-    imgData = base64.b64encode(f.read())
+# image_path = "C:\\Users\\46222\\Documents\\Django_learning-main\\Django_learning-main\\test.jpg"
+# with open(image_path, 'rb') as f:
+#     imgData = base64.b64encode(f.read())
 
 
-url = "http://bitxiaoyk:8000/search/"
+url = "https://bitxiaoyk.cn:8000/"
 #关键字key在前，需要传输的变量在后
 files = {
     "name": "pc.name",
@@ -21,5 +21,5 @@ files = {
 }
 #    "image_source":"PC_UPLOAD_SEARCH_FILE",
 #    "range":'{"page_from": "searchIndex"}'
-r = requests.post(url, files=files)
+r = requests.post(url, files=files, verify = False)
 print(r)
