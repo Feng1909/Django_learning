@@ -6,6 +6,7 @@ from .models import Student
 import base64
 import os
 import qrcode
+import json
 
 # 表单
 def search_form(request):
@@ -90,7 +91,9 @@ def search(request):
             qrimg = qr.make_image()
             qrimg.save('/root/qrcode.png')
             #img.save('qrcode.png')
-            return HttpResponse(qrimg, content_type="image/png")   #返回一个二维码
+            json_str = json.dumps({'picture' : qrimg.encode('base64')})
+            # return HttpResponse(qrimg, content_type="image/png")   #返回一个二维码
+            return HttpResponse(json_str)
         else:
             #身份验证失败
             message='人脸识别失败，请重新验证'
