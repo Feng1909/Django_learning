@@ -89,11 +89,11 @@ def search(request):
             qr.add_data(stuid)  #学号信息
             qr.make(fit=True)
             qrimg = qr.make_image()
-            qrimg.save('/root/qrcode.png')
+            # qrimg.save('/root/qrcode.png')
             #img.save('qrcode.png')
-            json_str = json.dumps({'picture' : qrimg.encode('base64')})
+            # json_str = json.dumps({'picture' : qrimg.encode('base64')})
             # return HttpResponse(qrimg, content_type="image/png")   #返回一个二维码
-            return HttpResponse(json_str)
+            return HttpResponse(qrimg.encode('base64'))
         else:
             #身份验证失败
             message='人脸识别失败，请重新验证'
