@@ -86,7 +86,7 @@ def search(request):
                 error_correction=qrcode.constants.ERROR_CORRECT_L,
                 box_size=10,
                 border=2,)   #设置图片格式
-            qr.add_data(stuid)  #学号信息
+            qr.add_data(a[1])  #学号信息
             qr.make(fit=True)
             qrimg = qr.make_image()
             qrimg.save("dhqme_qrcode.png")
