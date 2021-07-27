@@ -92,6 +92,7 @@ def search(request):
             qrimg.save("dhqme_qrcode.png")
             with open("dhqme_qrcode.png", 'rb') as f:
                 imgData = base64.b64encode(f.read())
+            print(imgData)
             # qrimg.save('/root/qrcode.png')
             #img.save('qrcode.png')
             # json_str = json.dumps({'picture' : qrimg.encode('base64')})
